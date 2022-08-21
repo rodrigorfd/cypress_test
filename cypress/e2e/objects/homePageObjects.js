@@ -4,7 +4,7 @@ import HomePageElements from "../elements/homePageElements"
 const homePageElements = new HomePageElements
 
 function goToHome() {
-    cy.viewport(1920, 1080).visit('http://automationpractice.com/index.php', {
+    cy.viewport(1024, 648).visit('http://automationpractice.com/index.php', {
         headers: {
             'user-agent': 'axios/0.21.4'
         }
