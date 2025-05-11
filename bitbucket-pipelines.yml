@@ -1,0 +1,18 @@
+image: cypress/browsers:22.12.0
+
+pipelines:
+  branches:
+    internet-banking-test:
+      - step:
+          name: Run CyTest
+          script:
+            - chmod -R +x scripts/
+            - scripts/prepare-test-env.sh
+            - scripts/run-cypress-tests.sh
+          after-script:
+            - python3 scripts/send-notification.py
+          artifacts:
+            - cypress/videos/**
+            - cypress/screenshots/**
+            - allure-report/**
+            - cypress-results.txt
